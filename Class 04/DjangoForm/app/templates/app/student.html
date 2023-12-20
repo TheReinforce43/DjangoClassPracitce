@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% comment %} {% load crispy_forms_tags %} {% endcomment %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+   
+    <form method='POST' action="{% url "student" %}" style=" width:50%; margin:auto; height:500px" class='pt-4' enctype='multipart/form-data'>
+        {% csrf_token %}
+        {{form| crispy}}
+
+        <button class='btn btn-outline-primary mt-2'>Submit</button>
+
+    </form>
+
+
+{% endblock content %}
+
+
+
+

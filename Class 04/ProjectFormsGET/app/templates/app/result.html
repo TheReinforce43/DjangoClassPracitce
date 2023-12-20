@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>User Information</h1>
+<hr>
+
+{% comment %} <h1>User Name : {{name}}</h1> 
+<h1>User Email : {{email}}</h1> 
+<h1>User Rating : {{selectValue}}</h1>  {% endcomment %}
+ <h1>User Name : {{data.name | default:"No Name Found"}}</h1> 
+<h1>User Email : {{data.email | default:"No Email Found"}}</h1> 
+<h1>User Rating : {{data.selectValue | default:"No Rating Push"}}</h1>  
+
+
+
+{% endblock content %}
+
+
+
+

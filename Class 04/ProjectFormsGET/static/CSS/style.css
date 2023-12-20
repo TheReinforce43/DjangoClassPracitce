@@ -1,0 +1,14 @@
+.form_section
+{
+    /* width: 80%;
+    height:100vh; */
+    margin: auto;
+    padding-top: 10px;
+    border: 1px solid #ccc;
+    background-color: #F2F1EB;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+
+      <th scope="col">Title</th>
+      <th scope="col">Body</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% comment %}
+    <th scope="row">1</th>
+    {% endcomment %} {% for key in Data %}
+    <tr>
+      <td>{{key.id}}</td>
+      <td>{{key.title}}</td>
+      <td>{{key.body}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock content %}

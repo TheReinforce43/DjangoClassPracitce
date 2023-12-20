@@ -1,0 +1,15 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Welcome to my By Templates Homepage</h1>
+    {% comment %} Example of Gloabally used static file {% endcomment %}
+    {% comment %} <img src="static/Image1.jpg" alt=""> {% endcomment %}
+    <img src="{%  static 'Image1.jpg' %}" alt="Static File image">
+</body>
+</html>
