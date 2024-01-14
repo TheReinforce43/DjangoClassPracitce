@@ -1,0 +1,35 @@
+{% extends "base.html" %} {% block content %}
+
+{% comment %} <h1>Welcome to app custom page</h1> {% endcomment %}
+
+{% comment %} {{student}} {% endcomment %} {% if student|length > 0 %}
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Roll</th>
+      <th scope="col">name</th>
+      <th scope="col">address</th>
+      <th scope="col">FatherName</th>
+      <th scope="col">Remove</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    {% for key in student %}
+    <tr>
+      <td>{{key.Roll}}</td>
+      <td>{{key.name}}</td>
+      <td>{{key.address}}</td>
+      <td>{{key.FatherName}}</td>
+      <td><a class='btn btn-danger' href="{% url 'delete_std'  key.Roll %}">Delete</a></td>
+
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% else %}
+<h3>No Data Found</h3>
+
+{% endif %} {% endblock content %}

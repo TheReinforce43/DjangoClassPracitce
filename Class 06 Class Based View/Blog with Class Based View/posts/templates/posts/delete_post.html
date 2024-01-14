@@ -1,0 +1,16 @@
+{% extends "base.html" %} {% load crispy_forms_tags %} {% block content %}
+
+<form action="" method="post" style="width: 50%; margin: auto" novalidate>
+  {% csrf_token %}
+  <h1
+    class="text-center bg-warning text-danger"
+    style="border: 1px solid white"
+  >
+    Are You Sure to delete this post !!
+  </h1>
+  
+
+  <button class="btn btn-danger text-center" type="submit">Delete</button>
+</form>
+
+{% endblock %}
