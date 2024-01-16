@@ -30,13 +30,6 @@
 
             <div class="d-flex">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-                {% comment %} <li class="nav-item">
-                  <a class="btn btn-info nav-link fw-bold text-white active mx-4" aria-current="page" href="{% url "register" %}">Register Form</a>
-                </li>
-                <li class="nav-item">
-                  <a class=" btn btn-danger fw-bold nav-link active text-white" aria-current="page" href="{% url "login" %}">Log In</a>
-                </li> {% endcomment %}
                 {% if request.user.is_authenticated %}
                 <li class="nav-item">
                   <a class="btn btn-info nav-link fw-bold text-white active mx-2" aria-current="page" href="{% url "profile" %}">Profile</a>

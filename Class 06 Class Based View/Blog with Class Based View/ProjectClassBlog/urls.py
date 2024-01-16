@@ -22,12 +22,11 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('',views.home,name='home'),
     path('author/',include('authors.urls')),
     path('category/',include('categories.urls')),
     path('post/',include('posts.urls')),
     path('category/<slug:category_slug>/',views.home,name='category_wise_post'),
- 
-    path('',views.home,name='home'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL,

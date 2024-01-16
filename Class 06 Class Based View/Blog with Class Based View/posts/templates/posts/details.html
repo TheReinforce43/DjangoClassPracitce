@@ -1,7 +1,7 @@
-{% extends "base.html" %} {% load static %}
-{% load crispy_forms_tags %}
+{% extends "base.html" %} {% load static %} {% load crispy_forms_tags %} 
 
-{% block content %}
+
+{%block content %}
 
 <div class="card col-10 m-auto">
   <img src="{{post.image.url}}" class="card-img-top" alt="..." />
@@ -10,35 +10,52 @@
     <p class="card-text">
       Author Name : {{post.author.first_name}} {{post.author.last_name}}
     </p>
-    <h3>Category List:
-        {% for cat in post.category.all %}
-    
-    <button class="btn btn-success" type="button">{{cat.name}}</button>
+    <h3>
+      Category List: {% for cat in post.category.all %}
 
-    {% endfor %}
+      <button class="btn btn-success" type="button">{{cat.name}}</button>
+
+      {% endfor %}
     </h3>
-    <h3>Total Comments : {{comments | length}}</h3>  
+    <h3>Total Comments : {{comments | length}}</h3>
 
-    {% for comment in  comments %}
-      <p>Reader Name : {{comment.name}}</p>
+    <div class='d-flex '>
+    {% for comment in comments %}
     
-    {% endfor %}
 
-  </div>
-  
-  <div class="text-center"><h1>Comment Section</h1></div>
-  <div class="card">
-    <div class="card-body">
-     <form action="" method="post" novalidate >
-      {% csrf_token %}
-      {{comment_form | crispy}}
-      <button class='btn btn-warning' type='submit'>Sumbit</button>
-     </form>
+      <div class="card mx-2"  style="width: 18rem">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">{{comment.name}}</li>
+          <li class="list-group-item">{{comment.body}}</li>
+          <li class="list-group-item">{{comment.email}}</li>
+          <li class="list-group-item">{{comment.created_on}}</li>
+        </ul>
+      </div>
+      {% endfor %}
     </div>
+    
+
+   
   </div>
+
+  {% if request.user.is_authenticated %}
+      <div class="text-center"><h1>Comment Section</h1></div>
+      <div class="card">
+        <div class="card-body">
+          <form action="" method="post" novalidate>
+            {% csrf_token %} {{comment_form | crispy}}
+            <button class="btn btn-warning" type="submit">Sumbit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    
+    
+  {% else %}
+  <p>Before Comment,Please signup first ,<a class='btn btn-success' href="{% url "register" %}">Signup</a></p>
+  <p>Already have an account ? please <a class='btn btn-primary' href="{% url "login" %}">Login</a> </p>
   
-</div>
-
-
+  {% endif %}
+  
 
 {% endblock content %}
