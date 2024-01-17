@@ -4,3 +4,4 @@ Class Content:
 3. HTML Form,Django Form Practice
 4. Class Based View in Django
 5. Authentication and Authorization
+6. Blog CRUD Project using Class Based view
